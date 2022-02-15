@@ -45,6 +45,12 @@ void Scene::MoveCamera(glm::vec3 disp)
 	camera->Move(disp);
 }
 
+// Rotates the camera by the given displacement
+void Scene::RotateCamera(glm::vec3 disp)
+{
+	camera->Rotate(disp);
+}
+
 // Returns the ray of the given pixel based on the current camera viewpoint
 Ray Scene::GetRay(int x, int y, int width, int height)
 {

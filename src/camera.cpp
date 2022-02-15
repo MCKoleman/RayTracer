@@ -8,8 +8,9 @@ Ray Camera::GetRay(int xi, int yi, int width, int height)
 	vec3 rectCenter = basisE - basisW;
 	vec3 basisUW = (float)width * basisU;
 	vec3 basisVH = (float)height * basisV;
-	float u = (xi + 0.5f) / width;
-	float v = (yi + 0.5f) / height;
+	float canvasSize = 2 * tan(fov);
+	float u = canvasSize * ((xi + 0.5f) / width );// -(float)width / 2.0f;
+	float v = canvasSize * ((yi + 0.5f) / height );// -(float)height / 2.0f;
 
 	//vec3 bl = rectCenter - 0.5f * basisUW - 0.5f * basisVH;
 	//vec3 tr = rectCenter + 0.5f * basisUW + 0.5f * basisVH;
@@ -43,12 +44,42 @@ void Camera::CalcBasis()
 	std::cout << "v[" << basisV.x << ", " << basisV.y << ", " << basisV.z << "]; ";
 	std::cout << "w[" << basisW.x << ", " << basisW.y << ", " << basisW.z << "]; ";
 	std::cout << "e[" << basisE.x << ", " << basisE.y << ", " << basisE.z << "]" << std::endl;
+
+	/*
+	float fn = far + near;
+	float f_n = far - near;
+	float t = 1.0f / tan(fov / 2.0f);
+	projMat = glm::mat4x4(
+		glm::vec4(t / aspectRatio, 0.0f, 0.0f, 0.0f), 
+		glm::vec4(0.0f, t, 0.0f, 0.0f), 
+		glm::vec4(0.0f, 0.0f, -fn / f_n, -1.0f), 
+		glm::vec4(0.0f, 0.0f, -2.0f * far * near / f_n, 0.0f));
+	*/
 }
 
 // Moves the camera by the given displacement vector
 void Camera::Move(glm::vec3 displacement)
 {
 	position = position + displacement;
+	CalcBasis();
+}
+
+// Rotates the camera by the given displacement vector
+void Camera::Rotate(glm::vec3 displacement)
+{
+	// Find current angles
+	float tempX = atan(lookAt.x);
+	float tempY = atan(lookAt.y);
+	float tempZ = atan(lookAt.z);
+
+	// Calculate new angles
+	float newX = tan(glm::clamp(tempX + displacement.x, -85.0f, 85.0f));
+	float newY = tan(glm::clamp(tempY + displacement.y, -85.0f, 85.0f));
+	float newZ = tan(glm::clamp(tempZ + displacement.z, -85.0f, 85.0f));
+
+	// Set new lookAt vector
+	lookAt = glm::vec3(newX, newY, newZ);
+
 	CalcBasis();
 }
 
@@ -96,4 +127,11 @@ Camera::Camera(glm::vec3 _pos, glm::vec3 _lookAt, glm::vec3 _up, bool _isOrth, f
 {
 	aspectRatio = _aspect.x / _aspect.y;
 	CalcBasis();
+}
+
+Camera::Camera(glm::vec3 _pos, glm::vec3 _lookAt, glm::vec3 _up, bool _isOrth, float _fov, glm::vec2 _aspect, float _near, float _far)
+	: Camera(_pos, _lookAt, _up, _isOrth, _fov, _aspect)
+{
+	near = _near;
+	far = _far;
 }

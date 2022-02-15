@@ -11,13 +11,14 @@ const int TETRA_TRIS = 4;
 class Tetrahedron : public Model {
 	Tri tris[TETRA_TRIS];
 public:
-	Hit Intersect(Ray ray, float start, float end);
+	Hit Intersect(int index, Ray ray, float start, float end);
 
 	Tetrahedron();
+	Tetrahedron(glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3 v3, Material _mat);
 	Tetrahedron(glm::vec3 center, float size);
 	Tetrahedron(glm::vec3 center, float size, Material _mat);
 	Tetrahedron(glm::vec3 center, float size, MatType _matT, glm::vec3 _kd, glm::vec3 _ks, glm::vec3 _ka);
-	Tetrahedron(Tri*& _tris);
-	Tetrahedron(Tri& tri1, Tri& tri2, Tri& tri3, Tri& tri4);
+	Tetrahedron(Tri* _tris);
+	Tetrahedron(Tri tri1, Tri tri2, Tri tri3, Tri tri4, Material _mat);
 	~Tetrahedron();
 };

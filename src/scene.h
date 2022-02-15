@@ -24,6 +24,7 @@ public:
 	// Camera functions
 	void ToggleOrth();
 	void MoveCamera(glm::vec3 disp);
+	void RotateCamera(glm::vec3 disp);
 	Hit Intersect(Ray ray, float start, float end);
 	Ray GetRay(int x, int y, int width, int height);
 

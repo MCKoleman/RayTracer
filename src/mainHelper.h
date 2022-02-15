@@ -13,6 +13,7 @@
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 800;
 const float MOVE_MOD = 0.05f;
+const float LOOK_MOD = 15.0f;
 const int WIDTH = 512;
 const int HEIGHT = 512; // Width and height must be powers of 2
 

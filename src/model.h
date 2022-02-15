@@ -1,13 +1,16 @@
 #include <glm/vec3.hpp>
 #include "camera.h"
 #include "material.h"
-#include "hit.h"
+#include "tri.h"
 #pragma once
 
 class Model {
+protected:
+	int numTris = 1;
 public:
 	Material mat;
 
+	virtual Hit Intersect(int index, Ray ray, float start, float end);
 	virtual Hit Intersect(Ray ray, float start, float end);
 
 	// Default
