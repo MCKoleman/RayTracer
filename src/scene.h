@@ -3,6 +3,7 @@
 #include "camera.h"
 #include "light.h"
 #include "hit.h"
+#include "options.h"
 #pragma once
 
 class Scene {
@@ -13,6 +14,7 @@ public:
 	// Variables
 	glm::vec3 bgColor;
 	Light* light;
+	Options options;
 
 	// Model functions
 	void AddModel();
@@ -25,6 +27,7 @@ public:
 	void ToggleOrth();
 	void MoveCamera(glm::vec3 disp);
 	void RotateCamera(glm::vec3 disp);
+	bool IsOrth();
 	Hit Intersect(Ray ray, float start, float end);
 	Ray GetRay(int x, int y, int width, int height);
 
@@ -32,7 +35,7 @@ public:
 	Model*& operator[](size_t index);
 	Scene();
 	Scene(Camera* _camera);
-	Scene(Camera* _camera, Light* _light, glm::vec3 _bgColor);
+	Scene(Camera* _camera, Light* _light, glm::vec3 _bgColor, Options _options);
 	Scene(std::vector<Model*>& _models);
 	~Scene();
 };

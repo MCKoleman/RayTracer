@@ -4,7 +4,7 @@
 #include "ray.h"
 #pragma once
 
-const float NEAR_CLIP_DIST = 0.01f;
+const float NEAR_CLIP_DIST = 0.0001f;
 const float FAR_CLIP_DIST = 10000.0f;
 
 class Camera {

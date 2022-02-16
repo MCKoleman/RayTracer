@@ -6,11 +6,9 @@ Ray Camera::GetRay(int xi, int yi, int width, int height)
 {
 	using namespace glm;
 	vec3 rectCenter = basisE - basisW;
-	vec3 basisUW = (float)width * basisU;
-	vec3 basisVH = (float)height * basisV;
-	float canvasSize = 2 * tan(fov);
-	float u = canvasSize * ((xi + 0.5f) / width );// -(float)width / 2.0f;
-	float v = canvasSize * ((yi + 0.5f) / height );// -(float)height / 2.0f;
+	float canvasSize = tan(radians(fov * 0.5f));
+	float u = canvasSize * (2 * (xi + 0.5f) / width - 1);// -(float)width / 2.0f;
+	float v = canvasSize * (1 - 2 * (yi + 0.5f) / height ) / aspectRatio;// -(float)height / 2.0f;
 
 	//vec3 bl = rectCenter - 0.5f * basisUW - 0.5f * basisVH;
 	//vec3 tr = rectCenter + 0.5f * basisUW + 0.5f * basisVH;
@@ -27,7 +25,7 @@ Ray Camera::GetRay(int xi, int yi, int width, int height)
 	// Perspective projection
 	else {
 		// dir = -d*w + (u)*u + (v)*v
-		vec3 dir = -distance(basisE, rectCenter) * basisW + u * basisU + v * basisV;
+		vec3 dir = -(far - near) * basisW + u * basisU + v * basisV;
 		return Ray(basisE, normalize(dir));
 	}
 }
@@ -45,7 +43,8 @@ void Camera::CalcBasis()
 	std::cout << "w[" << basisW.x << ", " << basisW.y << ", " << basisW.z << "]; ";
 	std::cout << "e[" << basisE.x << ", " << basisE.y << ", " << basisE.z << "]" << std::endl;
 
-	/*
+	// Calculate camera to world projection matrix
+	/**
 	float fn = far + near;
 	float f_n = far - near;
 	float t = 1.0f / tan(fov / 2.0f);
@@ -54,7 +53,9 @@ void Camera::CalcBasis()
 		glm::vec4(0.0f, t, 0.0f, 0.0f), 
 		glm::vec4(0.0f, 0.0f, -fn / f_n, -1.0f), 
 		glm::vec4(0.0f, 0.0f, -2.0f * far * near / f_n, 0.0f));
-	*/
+	
+	basisE = projMat * position.;
+	/**/
 }
 
 // Moves the camera by the given displacement vector

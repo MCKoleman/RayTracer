@@ -51,6 +51,12 @@ void Scene::RotateCamera(glm::vec3 disp)
 	camera->Rotate(disp);
 }
 
+// Returns whether the camera is orthographic
+bool Scene::IsOrth()
+{
+	return camera->isOrthographic;
+}
+
 // Returns the ray of the given pixel based on the current camera viewpoint
 Ray Scene::GetRay(int x, int y, int width, int height)
 {
@@ -86,20 +92,24 @@ Scene::Scene() : bgColor(glm::vec3(0,0,0))
 {
 	camera = new Camera();
 	light = new Light();
+	options = Options();
 }
 
 Scene::Scene(Camera* _camera) : camera(_camera), bgColor(glm::vec3(0, 0, 0))
 {
 	light = new Light();
+	options = Options();
 }
 
-Scene::Scene(Camera* _camera, Light* _light, glm::vec3 _bgColor) : camera(_camera), light(_light), bgColor(_bgColor) {}
+Scene::Scene(Camera* _camera, Light* _light, glm::vec3 _bgColor, Options _options) 
+	: camera(_camera), light(_light), bgColor(_bgColor), options(_options) {}
 
 // Initializes the scene with the given models
 Scene::Scene(std::vector<Model*>& _models) : models(_models), bgColor(glm::vec3(0, 0, 0))
 {
 	camera = new Camera();
 	light = new Light();
+	options = Options();
 }
 
 // Destructor

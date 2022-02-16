@@ -19,5 +19,6 @@ const int HEIGHT = 512; // Width and height must be powers of 2
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 bool processInput(GLFWwindow* window, Scene* scene);
-void Raytrace(Scene* scene);
+void RaytraceScene(Scene* scene);
+glm::vec3 RaytracePixel(Scene* scene, Ray viewRay, unsigned int depth);
 Scene* InitScene();

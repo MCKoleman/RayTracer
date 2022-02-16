@@ -31,6 +31,7 @@ Tetrahedron::Tetrahedron(glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3 v3,
 	tris[3] = Tri(v1, v2, v3);
 	numTris = TETRA_TRIS;
 
+	/*
 	std::cout << "Tetrahedron: [N{" << tris[0].normal.x << ", " << tris[0].normal.y << ", " << tris[0].normal.z << "}; ";
 	std::cout << "x{" << tris[0].vertices[0].x << ", " << tris[0].vertices[0].y << ", " << tris[0].vertices[0].z << "}; ";
 	std::cout << "y{" << tris[0].vertices[1].x << ", " << tris[0].vertices[1].y << ", " << tris[0].vertices[1].z << "}; ";
@@ -50,15 +51,23 @@ Tetrahedron::Tetrahedron(glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3 v3,
 	std::cout << "x{" << tris[3].vertices[0].x << ", " << tris[3].vertices[0].y << ", " << tris[3].vertices[0].z << "}; ";
 	std::cout << "y{" << tris[3].vertices[1].x << ", " << tris[3].vertices[1].y << ", " << tris[3].vertices[1].z << "}; ";
 	std::cout << "z{" << tris[3].vertices[2].x << ", " << tris[3].vertices[2].y << ", " << tris[3].vertices[2].z << "}; " << std::endl;
+	*/
 }
 
 // Creates a regular tetrahedron centered at the given position with the given size
 Tetrahedron::Tetrahedron(vec3 center, float size)
 {
-	vec3 v0 = vec3(center.x, center.y, center.z + size);
-	vec3 v1 = vec3(0.9428f * size + center.x, center.y, center.z - size / 3);
-	vec3 v2 = vec3(-0.4714f * size + center.x, center.y + 0.8165f * size, center.z - size / 3);
-	vec3 v3 = vec3(-0.4714f * size + center.x, center.y - 0.8165f * size, center.z - size / 3);
+	// y as top
+	vec3 v0 = vec3(0.9428f * size + center.x, center.y - size / 3, center.z);
+	vec3 v1 = vec3(-0.4714f * size + center.x, center.y + size / 3, center.z - 0.8165f * size);
+	vec3 v2 = vec3(-0.4714f * size + center.x, center.y - size / 3, center.z - 0.8165f * size);
+	vec3 v3 = vec3(center.x, center.y + size, center.z);
+
+	// z as top
+	//vec3 v0 = vec3(center.x, center.y, center.z + size);
+	//vec3 v1 = vec3(0.9428f * size + center.x, center.y, center.z - size / 3);
+	//vec3 v2 = vec3(-0.4714f * size + center.x, center.y + 0.8165f * size, center.z - size / 3);
+	//vec3 v3 = vec3(-0.4714f * size + center.x, center.y - 0.8165f * size, center.z - size / 3);
 
 	tris[0] = Tri(v0, v1, v2);
 	tris[1] = Tri(v0, v1, v3);
@@ -66,6 +75,7 @@ Tetrahedron::Tetrahedron(vec3 center, float size)
 	tris[3] = Tri(v1, v2, v3);
 	numTris = TETRA_TRIS;
 
+	/*
 	std::cout << "Tetrahedron: [N{" << tris[0].normal.x << ", " << tris[0].normal.y << ", " << tris[0].normal.z << "}; ";
 	std::cout << "x{" << tris[0].vertices[0].x << ", " << tris[0].vertices[0].y << ", " << tris[0].vertices[0].z << "}; ";
 	std::cout << "y{" << tris[0].vertices[1].x << ", " << tris[0].vertices[1].y << ", " << tris[0].vertices[1].z << "}; ";
@@ -85,7 +95,7 @@ Tetrahedron::Tetrahedron(vec3 center, float size)
 	std::cout << "x{" << tris[3].vertices[0].x << ", " << tris[3].vertices[0].y << ", " << tris[3].vertices[0].z << "}; ";
 	std::cout << "y{" << tris[3].vertices[1].x << ", " << tris[3].vertices[1].y << ", " << tris[3].vertices[1].z << "}; ";
 	std::cout << "z{" << tris[3].vertices[2].x << ", " << tris[3].vertices[2].y << ", " << tris[3].vertices[2].z << "}; " << std::endl;
-
+	*/
 }
 
 Tetrahedron::Tetrahedron(vec3 center, float size, Material _mat) : Tetrahedron(center, size)

@@ -126,7 +126,7 @@ int main() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
     // Raytrace original scene
-    Raytrace(scene);
+    RaytraceScene(scene);
 
     // render loop
     // -----------
@@ -139,7 +139,7 @@ int main() {
         // Recalculate image only on frames that a significant key was pressed
         if (wasKeyPressed)
         {
-            Raytrace(scene);
+            RaytraceScene(scene);
         }
 
         // render
