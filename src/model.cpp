@@ -14,7 +14,7 @@ Hit Model::Intersect(Ray ray, float start, float end)
 	Hit bestHit = Hit();
 
 	// Check intersections in every vertice of every tri in the tetrahedron
-	for (size_t i = 0; i < numTris; i++) {
+	for (int i = 0; i < numTris; i++) {
 		Hit tempHit = Intersect(i, ray, start, end);
 
 		//std::cout << "Checking for best hit. Current hit data: BestHit: [" << bestHit.dist << "], TempHit: [" << tempHit.dist << "]" << std::endl;

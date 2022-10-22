@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\camera.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\light.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\mainHelper.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\material.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\model.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\plane.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\sphere.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\tetrahedron.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\camera.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\hit.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\light.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\main.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\mainHelper.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\material.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\model.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\options.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\plane.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\ray.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\scene.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\sphere.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\tetrahedron.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\manu2\Documents\.Projects\RayTracer\src\tri.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\manu2\Documents\.Projects\RayTracer\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{EBB4FF24-20E4-3C7A-935E-5D3F12383DA7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
