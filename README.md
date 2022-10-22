@@ -2,7 +2,7 @@
 This program is a very simple raytracing application made using OpenGL. The core libraries used are GLEW, GLFW, and GLM.
 
 ## Compilation
-To compile the program, run the following command in a terminal. You must also make sure you have make installed. ```make all```
+The project uses CMake to build. Running the CMake GUI application and selecting the project's root directory, ie. `<location>/RayTracer/` as the source code location, and `<location>/RayTracer/build` as the build location, and then running `configure` and `generate` allows the user to create visual studio project files for the project. After these files are generated, the program can be opened in visual studio by opening the `RayTracer.sln` project file. To build the program in visual studio, right click the 'RayTracer' project inside the solution hierarchy in visual studio and select `Set as startup project`. Finally, right click the 'RayTracer' project, select properties, and in the 'Configuration Properties >> Linker >> Input' section, add `glew32s.lib` to the 'Additional Dependencies' field. Now the project can be recompiled by pressing F7 or selecting 'Build >> Build Solution' in Visual Studio.
 
 ## Operation
 Press 1 to between the orthographic (default) and perspective cameras.
